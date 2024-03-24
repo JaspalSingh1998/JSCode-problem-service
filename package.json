@@ -19,7 +19,8 @@
   "homepage": "https://github.com/JaspalSingh1998/JSCode-problem-service#readme",
   "dependencies": {
     "dotenv": "^16.4.5",
-    "express": "^4.19.1"
+    "express": "^4.19.1",
+    "http-status-codes": "^2.3.0"
   },
   "devDependencies": {
     "nodemon": "^3.1.0"
