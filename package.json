@@ -1,0 +1,27 @@
+{
+  "name": "jscode-problem-service",
+  "version": "1.0.0",
+  "description": "A service for problems for JSCode",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "nodemon src/index.js",
+    "start": "node src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JaspalSingh1998/JSCode-problem-service.git"
+  },
+  "author": "Jaspal Singh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JaspalSingh1998/JSCode-problem-service/issues"
+  },
+  "homepage": "https://github.com/JaspalSingh1998/JSCode-problem-service#readme",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}
