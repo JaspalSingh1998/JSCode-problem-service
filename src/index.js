@@ -6,7 +6,7 @@ const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
-app.use(express.text);
+app.use(express.text());
 
 app.get('/ping', (req, res) => {
     res.send('Service is up and running');
