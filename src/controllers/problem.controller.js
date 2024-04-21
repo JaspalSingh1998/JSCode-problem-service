@@ -18,7 +18,7 @@ async function addProblem(req, res, next) {
   }
 }
 
-async function getProblem(req, res) {
+async function getProblem(req, res, next) {
    try {
      const allProblems = await problemService.getProblem(req.params.id)
      return res.status(StatusCodes.OK).json({success: true, message: 'Successfully fetched the problem.', error: {}, data: allProblems})
@@ -27,7 +27,7 @@ async function getProblem(req, res) {
    }
 }
 
-async function getProblems(req, res) {
+async function getProblems(req, res, next) {
     try {
         const allProblems = await problemService.getAllProblems();
         return res.status(StatusCodes.OK).json({success: true, message: 'Successfully fetched all the problem.', error: {}, data: allProblems})
@@ -36,10 +36,13 @@ async function getProblems(req, res) {
       }
 }
 
-function deleteProblem(req, res) {
-    return res.status(501).json({
-        message: 'Not implemented'
-    });
+async function deleteProblem(req, res, next) {
+    try {
+        const problem = await problemService.deleteProblem(req.params.id);
+        return res.status(StatusCodes.OK).json({success: true, message: `Successfully delete problem with id ${problem._id}.`, error: {}, data: problem._id})
+      } catch (error) {
+           next(error);
+      }
 }
 
 function updateProblem(req, res) {
