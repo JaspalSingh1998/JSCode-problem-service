@@ -18,6 +18,16 @@ class ProblemService {
             throw error;
        }
     }
+
+    async getAllProblems() {
+        try {
+            const probelms = await this.problemRepository.getAllProblems();
+            return probelms;
+        } catch (error) {
+            console.log(error);
+            throw error;
+        }
+    }
 }
 
 module.exports = ProblemService;
