@@ -1,8 +1,8 @@
 const express = require('express');
 const {PORT} = require('./config/server.config');
 const apiRouter = require('./routes');
-
-
+const errorHandler = require('./utils/errorHandler');
+const connectDB = require('./config/db.config');
 const app = express();
 
 app.use(express.json());
@@ -15,4 +15,10 @@ app.get('/ping', (req, res) => {
     res.send('Service is up and running');
 })
 
-app.listen(PORT, () => console.log(`App is running on PORT ${PORT}`))
+// last middleware if any error comes up
+app.use(errorHandler);
+
+app.listen(PORT, () => {
+    console.log(`App is running on PORT ${PORT}`);
+    connectDB().then(() => console.log('Database Connected!!'))
+})
