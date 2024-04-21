@@ -20,8 +20,8 @@ async function addProblem(req, res, next) {
 
 async function getProblem(req, res) {
    try {
-     const allProblems = await problemService.getAllProblems();
-     return res.status(StatusCodes.CREATED).json({success: true, message: 'Successfully fetched all the problem.', error: {}, data: allProblems})
+     const allProblems = await problemService.getProblem(req.params.id)
+     return res.status(StatusCodes.CREATED).json({success: true, message: 'Successfully fetched the problem.', error: {}, data: allProblems})
    } catch (error) {
         next(error);
    }

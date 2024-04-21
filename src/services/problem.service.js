@@ -28,6 +28,16 @@ class ProblemService {
             throw error;
         }
     }
+
+    async getProblem(problemId) {
+        try {
+            const probelms = await this.problemRepository.getProblemById(problemId);
+            return probelms;
+        } catch (error) {
+            console.log(error);
+            throw error;
+        }
+    }
 }
 
 module.exports = ProblemService;
