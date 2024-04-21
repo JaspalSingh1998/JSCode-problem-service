@@ -48,6 +48,22 @@ class ProblemService {
             throw error;
         }
     }
+
+    async updateProblem(problemId, problemData) {
+        try {
+            // 1. Sanitize markdown for description if exist
+            if(problemData.description) {
+                problemData.description = sanitizeMarkdown(problemData.description)
+            }
+   
+            const updatedProblem = await this.problemRepository.updateProblemById(problemId, problemData);
+    
+            return updatedProblem;
+          } catch (error) {
+               console.log(error);
+               throw error;
+          }
+    }
 }
 
 module.exports = ProblemService;

@@ -45,8 +45,13 @@ async function deleteProblem(req, res, next) {
       }
 }
 
-function updateProblem(req, res) {
-
+async function updateProblem(req, res, next) {
+    try {
+        const problem = await problemService.updateProblem(req.params.id, req.body);
+        return res.status(StatusCodes.OK).json({success: true, message: `Successfully updated problem with id ${problem._id}.`, error: {}, data: problem})
+      } catch (error) {
+           next(error);
+      }
 }
 
 module.exports = {
