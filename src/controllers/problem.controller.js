@@ -21,7 +21,7 @@ async function addProblem(req, res, next) {
 async function getProblem(req, res) {
    try {
      const allProblems = await problemService.getProblem(req.params.id)
-     return res.status(StatusCodes.CREATED).json({success: true, message: 'Successfully fetched the problem.', error: {}, data: allProblems})
+     return res.status(StatusCodes.OK).json({success: true, message: 'Successfully fetched the problem.', error: {}, data: allProblems})
    } catch (error) {
         next(error);
    }
@@ -30,7 +30,7 @@ async function getProblem(req, res) {
 async function getProblems(req, res) {
     try {
         const allProblems = await problemService.getAllProblems();
-        return res.status(StatusCodes.CREATED).json({success: true, message: 'Successfully fetched all the problem.', error: {}, data: allProblems})
+        return res.status(StatusCodes.OK).json({success: true, message: 'Successfully fetched all the problem.', error: {}, data: allProblems})
       } catch (error) {
            next(error);
       }
